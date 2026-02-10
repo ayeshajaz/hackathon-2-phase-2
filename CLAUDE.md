@@ -1,4 +1,4 @@
-# Claude Code Rules
+﻿# Claude Code Rules
 
 This file is generated during init for the selected agent.
 
@@ -113,7 +113,171 @@ You are not expected to solve every problem autonomously. You MUST invoke the us
 1.  **Ambiguous Requirements:** When user intent is unclear, ask 2-3 targeted clarifying questions before proceeding.
 2.  **Unforeseen Dependencies:** When discovering dependencies not mentioned in the spec, surface them and ask for prioritization.
 3.  **Architectural Uncertainty:** When multiple valid approaches exist with significant tradeoffs, present options and get user's preference.
-4.  **Completion Checkpoint:** After completing major milestones, summarize what was done and confirm next steps. 
+4.  **Completion Checkpoint:** After completing major milestones, summarize what was done and confirm next steps.
+
+## Project Technology Stack
+
+This project transforms a console application into a modern multi-user web application using the following stack:
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Next.js 16+ (App Router) |
+| Backend | Python FastAPI |
+| ORM | SQLModel |
+| Database | Neon Serverless PostgreSQL |
+| Authentication | Better Auth (JWT tokens) |
+| Development | Claude Code + Spec-Kit Plus |
+
+### Authentication Architecture
+
+**Better Auth with JWT Flow:**
+
+1. **User Login:** User logs in on Frontend → Better Auth creates a session and issues a JWT token
+2. **API Requests:** Frontend makes API call → Includes JWT token in `Authorization: Bearer <token>` header
+3. **Token Verification:** Backend receives request → Extracts token from header, verifies signature using shared secret
+4. **User Identification:** Backend identifies user → Decodes token to get user ID, email, etc. and matches it with the user ID in the URL
+5. **Data Filtering:** Backend filters data → Returns only resources belonging to that authenticated user
+
+**Security Requirements:**
+- Never hardcode JWT secrets; use environment variables
+- Validate JWT signature on every protected endpoint
+- Match authenticated user ID with resource ownership
+- Implement proper error handling for expired/invalid tokens
+
+## Specialized Agent Usage Guidelines
+
+Use the Task tool to invoke specialized agents for different aspects of the application. Each agent has specific expertise and should be used for their designated domain.
+
+### 1. Authentication Agent (auth-security-specialist)
+
+**Use this agent for:**
+- Implementing user signup/signin flows
+- Integrating Better Auth with the frontend
+- Setting up JWT token generation and validation
+- Configuring authentication middleware
+- Password hashing and secure credential storage
+- Session management
+- Security audits of authentication code
+
+**Example invocations:**
+```
+User: "I need to add user registration"
+→ Use Task tool with subagent_type="auth-security-specialist"
+
+User: "Set up Better Auth with JWT tokens"
+→ Use Task tool with subagent_type="auth-security-specialist"
+
+User: "Create login endpoint with JWT"
+→ Use Task tool with subagent_type="auth-security-specialist"
+```
+
+### 2. Frontend Agent (nextjs-app-builder)
+
+**Use this agent for:**
+- Building Next.js App Router pages and layouts
+- Creating responsive UI components
+- Implementing client-side routing
+- Setting up metadata and SEO
+- Building forms and user interactions
+- Integrating with backend APIs
+- Server Components and Client Components architecture
+
+**Example invocations:**
+```
+User: "Create a dashboard page for users"
+→ Use Task tool with subagent_type="nextjs-app-builder"
+
+User: "Build a responsive navigation component"
+→ Use Task tool with subagent_type="nextjs-app-builder"
+
+User: "Add a form for creating new items"
+→ Use Task tool with subagent_type="nextjs-app-builder"
+```
+
+### 3. Database Agent (database-schema-design)
+
+**Use this agent for:**
+- Designing database schemas and table structures
+- Creating SQLModel models
+- Setting up relationships (one-to-many, many-to-many)
+- Database migrations
+- Indexing strategies
+- Data validation at the model level
+- Neon PostgreSQL-specific optimizations
+
+**Example invocations:**
+```
+User: "Design the database schema for users and tasks"
+→ Use Task tool with subagent_type="database-schema-design"
+
+User: "Create SQLModel models for the application"
+→ Use Task tool with subagent_type="database-schema-design"
+
+User: "Add a relationship between users and their items"
+→ Use Task tool with subagent_type="database-schema-design"
+```
+
+**After database work, proactively invoke neon-db-optimizer:**
+After implementing database queries or data access layers, use the neon-db-optimizer agent to review for:
+- N+1 query issues
+- Connection pooling optimization
+- Prepared statements
+- Neon-specific best practices
+
+### 4. Backend Agent (backend-api-architect)
+
+**Use this agent for:**
+- Designing and implementing FastAPI routes
+- Creating RESTful API endpoints
+- Request/response validation with Pydantic
+- Business logic separation
+- Error handling and status codes
+- Database query optimization
+- API documentation (OpenAPI/Swagger)
+- Middleware implementation (CORS, JWT validation)
+
+**Example invocations:**
+```
+User: "Create API endpoints for task management"
+→ Use Task tool with subagent_type="backend-api-architect"
+
+User: "Add CRUD operations for user resources"
+→ Use Task tool with subagent_type="backend-api-architect"
+
+User: "Implement JWT validation middleware"
+→ Use Task tool with subagent_type="backend-api-architect"
+```
+
+### Agent Coordination
+
+**Multi-agent workflows:**
+
+When a feature requires multiple domains, invoke agents sequentially:
+
+1. **Database First:** Use database-schema-design to create models
+2. **Backend Second:** Use backend-api-architect to create API endpoints
+3. **Frontend Third:** Use nextjs-app-builder to create UI
+4. **Auth Integration:** Use auth-security-specialist to secure endpoints
+
+**Example full-stack feature:**
+```
+User: "Add a task management feature with user authentication"
+
+Step 1: Use database-schema-design agent
+→ Create Task and User models with relationships
+
+Step 2: Use backend-api-architect agent
+→ Create /api/tasks endpoints (GET, POST, PUT, DELETE)
+
+Step 3: Use auth-security-specialist agent
+→ Add JWT validation middleware to protect endpoints
+
+Step 4: Use nextjs-app-builder agent
+→ Build task list UI and forms
+
+Step 5: Use neon-db-optimizer agent
+→ Review database queries for optimization
+```
 
 ## Default policies (must follow)
 - Clarify and plan first - keep business understanding separate from technical plan and carefully architect and implement.
