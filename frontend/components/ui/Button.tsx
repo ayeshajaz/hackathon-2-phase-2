@@ -1,13 +1,14 @@
 /**
  * Button Component
  *
- * Reusable button component with variants and loading states.
+ * Reusable button component with premium variants and loading states.
  */
 
 import React from 'react';
+import { cn } from '@/lib/utils/cn';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'danger';
+  variant?: 'primary' | 'secondary' | 'danger' | 'ghost';
   isLoading?: boolean;
   children: React.ReactNode;
 }
@@ -20,24 +21,27 @@ export function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const baseStyles = 'px-4 py-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseStyles = 'px-4 py-3 rounded-lg font-medium transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent disabled:opacity-50 disabled:cursor-not-allowed';
 
   const variantStyles = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
+    primary: 'bg-indigo-600 text-white hover:scale-105 hover:shadow-glow-lg focus:ring-indigo-500',
+    secondary: 'border-2 border-indigo-500/50 text-indigo-300 hover:bg-indigo-500/20 hover:scale-105 focus:ring-indigo-500',
+    danger: 'bg-gradient-to-r from-red-600 to-pink-600 text-white hover:scale-105 hover:shadow-glow-lg focus:ring-red-500',
+    ghost: 'bg-transparent text-gray-200 hover:bg-white/10 hover:scale-105 focus:ring-gray-500',
   };
+
+  const loadingStyles = isLoading ? 'opacity-75 cursor-wait' : '';
 
   return (
     <button
-      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
+      className={cn(baseStyles, variantStyles[variant], loadingStyles, className)}
       disabled={disabled || isLoading}
       {...props}
     >
       {isLoading ? (
         <span className="flex items-center justify-center">
           <svg
-            className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+            className="animate-spin -ml-1 mr-2 h-4 w-4"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

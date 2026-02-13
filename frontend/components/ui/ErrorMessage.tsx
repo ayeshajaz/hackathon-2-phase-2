@@ -1,10 +1,11 @@
 /**
  * Error Message Component
  *
- * Reusable error message display with optional retry button.
+ * Reusable error message display with premium styling and optional retry button.
  */
 
 import React from 'react';
+import { cn } from '@/lib/utils/cn';
 import { Button } from './Button';
 
 interface ErrorMessageProps {
@@ -15,8 +16,8 @@ interface ErrorMessageProps {
 
 export function ErrorMessage({ message, onRetry, className = '' }: ErrorMessageProps) {
   return (
-    <div className={`bg-red-50 border border-red-200 rounded-md p-4 ${className}`}>
-      <div className="flex items-start">
+    <div className={cn('bg-red-500/20 border border-red-500/50 rounded-lg p-4 backdrop-blur-sm', className)}>
+      <div className="flex items-start space-x-3">
         <div className="flex-shrink-0">
           <svg
             className="h-5 w-5 text-red-400"
@@ -31,8 +32,8 @@ export function ErrorMessage({ message, onRetry, className = '' }: ErrorMessageP
             />
           </svg>
         </div>
-        <div className="ml-3 flex-1">
-          <p className="text-sm text-red-800">{message}</p>
+        <div className="flex-1">
+          <p className="text-sm text-red-300">{message}</p>
           {onRetry && (
             <div className="mt-3">
               <Button variant="secondary" onClick={onRetry} className="text-sm">

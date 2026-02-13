@@ -95,21 +95,14 @@ export function SignupForm() {
       />
 
       {error && (
-        <div className="bg-red-50 border border-red-200 rounded-md p-3">
-          <p className="text-sm text-red-800">{error}</p>
+        <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-3">
+          <p className="text-sm text-red-300">{error}</p>
         </div>
       )}
 
       <Button type="submit" isLoading={isLoading} className="w-full min-h-[44px]">
         Sign Up
       </Button>
-
-      <p className="text-center text-sm text-gray-600">
-        Already have an account?{' '}
-        <Link href="/signin" className="text-blue-600 hover:underline">
-          Sign in
-        </Link>
-      </p>
     </form>
   );
 }

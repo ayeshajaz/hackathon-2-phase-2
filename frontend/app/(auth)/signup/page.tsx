@@ -1,25 +1,36 @@
 /**
  * Signup Page
  *
- * User registration page.
+ * User registration page with dark gradient theme.
  */
 
 import { SignupForm } from '@/components/auth/SignupForm';
 import { Card } from '@/components/ui/Card';
+import Link from 'next/link';
 
 export default function SignupPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12">
+    <div className="flex min-h-screen items-center justify-center px-4 py-12 bg-slate-900/40">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Create Account</h1>
-          <p className="mt-2 text-gray-600">
+          <h1 className="text-4xl font-bold mb-3 bg-indigo-300 bg-clip-text text-transparent">
+            Create Account
+          </h1>
+          <p className="text-gray-100">
             Sign up to start managing your tasks
           </p>
         </div>
 
-        <Card>
+        <Card className="shadow-2xl bg-slate-950/45">
           <SignupForm />
+          <div className="mt-6 text-center">
+            <p className="text-gray-100 text-sm">
+              Already have an account?{' '}
+              <Link href="/signin" className="text-indigo-300 hover:text-indigo-400 font-medium transition-colors">
+                Sign in
+              </Link>
+            </p>
+          </div>
         </Card>
       </div>
     </div>

@@ -1,25 +1,36 @@
 /**
  * Signin Page
  *
- * User authentication page.
+ * User authentication page with dark gradient theme.
  */
 
 import { SigninForm } from '@/components/auth/SigninForm';
 import { Card } from '@/components/ui/Card';
+import Link from 'next/link';
 
 export default function SigninPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12">
+    <div className="flex min-h-screen items-center justify-center px-4 py-12 bg-slate-900/40">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Welcome Back</h1>
-          <p className="mt-2 text-gray-600">
+          <h1 className="text-4xl font-bold mb-3 bg-indigo-300 bg-clip-text text-transparent">
+            Welcome Back
+          </h1>
+          <p className="text-gray">
             Sign in to access your tasks
           </p>
         </div>
 
-        <Card>
+        <Card className="shadow-2xl bg-slate-950/45">
           <SigninForm />
+          <div className="mt-6 text-center">
+            <p className="text-gray-100 text-sm">
+              Don't have an account?{' '}
+              <Link href="/signup" className="text-indigo-300 hover:text-indigo-700 font-medium transition-colors">
+                Sign up
+              </Link>
+            </p>
+          </div>
         </Card>
       </div>
     </div>

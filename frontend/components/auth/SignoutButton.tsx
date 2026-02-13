@@ -13,7 +13,7 @@ export function SignoutButton() {
   const { signout } = useAuth();
 
   return (
-    <Button variant="secondary" onClick={signout}>
+    <Button variant="ghost" onClick={signout}>
       Sign Out
     </Button>
   );

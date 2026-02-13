@@ -1,10 +1,11 @@
 /**
  * Loading Spinner Component
  *
- * Reusable loading spinner for async operations.
+ * Reusable loading spinner with premium styling for async operations.
  */
 
 import React from 'react';
+import { cn } from '@/lib/utils/cn';
 
 interface LoadingSpinnerProps {
   size?: 'sm' | 'md' | 'lg';
@@ -19,9 +20,9 @@ export function LoadingSpinner({ size = 'md', className = '' }: LoadingSpinnerPr
   };
 
   return (
-    <div className={`flex justify-center items-center ${className}`}>
+    <div className={cn('flex justify-center items-center', className)}>
       <svg
-        className={`animate-spin ${sizeClasses[size]} text-blue-600`}
+        className={cn('animate-spin text-indigo-400', sizeClasses[size])}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
