@@ -4,7 +4,7 @@
  * Reusable error message display with premium styling and optional retry button.
  */
 
-import React from 'react';
+
 import { cn } from '@/lib/utils/cn';
 import { Button } from './Button';
 

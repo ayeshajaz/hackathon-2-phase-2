@@ -9,7 +9,7 @@
 
 import { useAuth } from '@/lib/auth/context';
 import { SignoutButton } from '@/components/auth/SignoutButton';
-import { cn } from '@/lib/utils/cn';
+
 
 interface HeaderProps {
   onMenuClick?: () => void;

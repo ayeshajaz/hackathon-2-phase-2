@@ -14,7 +14,6 @@ import {
   deleteTask,
   completeTask,
 } from '@/lib/api/tasks';
-import { Task } from '@/types/task';
 import { TaskCreateRequest, TaskUpdateRequest } from '@/types/api';
 
 const TASKS_QUERY_KEY = ['tasks'];

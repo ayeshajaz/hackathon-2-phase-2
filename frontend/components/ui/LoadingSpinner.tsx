@@ -4,7 +4,7 @@
  * Reusable loading spinner with premium styling for async operations.
  */
 
-import React from 'react';
+
 import { cn } from '@/lib/utils/cn';
 
 interface LoadingSpinnerProps {

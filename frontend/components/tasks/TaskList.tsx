@@ -9,7 +9,6 @@
 
 import { useTasks } from '@/hooks/useTasks';
 import { TaskItem } from './TaskItem';
-import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 import { ErrorMessage } from '@/components/ui/ErrorMessage';
 
 export function TaskList() {

@@ -12,7 +12,7 @@ import { useAuth } from '@/lib/auth/context';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import { ApiError } from '@/types/api';
-import Link from 'next/link';
+
 
 interface SignupFormData {
   email: string;
