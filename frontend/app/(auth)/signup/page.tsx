@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 export default function SignupPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center px-4 py-12 bg-slate-900/40">
+    <div className="flex min-h-screen items-center justify-center px-4 py-12 bg-slate-950/40">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-3 bg-indigo-300 bg-clip-text text-transparent">
