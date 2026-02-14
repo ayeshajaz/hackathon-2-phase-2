@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth/context';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
+import { Header } from '@/components/layout/Header';
 import Link from 'next/link';
 
 export default function Home() {
@@ -46,7 +47,7 @@ export default function Home() {
     {/* HERO SECTION */}
     <div className="relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="lg:flex lg:items-center lg:justify-between py-24">
+        <div className="lg:flex lg:items-center lg:justify-between py-24 ">
 
           {/* LEFT SIDE */}
           <div className="lg:w-1/2 text-center lg:text-left">
@@ -80,7 +81,7 @@ export default function Home() {
           {/* RIGHT SIDE VISUAL */}
           <div className="lg:w-1/2 mt-12 lg:mt-0">
             <div className="bg-slate-950/40 backdrop-blur-lg p-10 rounded-3xl shadow-2xl border border-white/10">
-              <h3 className="text-2xl font-semibold mb-4 text-indigo-300">
+              <h3 className="text-2xl font-semibold mb-6 text-white">
                 Productivity Dashboard Preview
               </h3>
               <div className="space-y-4">
@@ -121,9 +122,9 @@ export default function Home() {
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-white/5 backdrop-blur-lg p-8 rounded-2xl border border-white/10 hover:scale-105 transition duration-300 shadow-lg"
+              className="bg-indigo-500/30 backdrop-blur-lg p-8 rounded-2xl border border-white/10 hover:scale-105 transition duration-300 shadow-lg"
             >
-              <h3 className="text-xl font-semibold text-indigo-300 mb-3">
+              <h3 className="text-xl font-semibold text-white mb-3">
                 {feature.title}
               </h3>
               <p className="text-gray-200">
@@ -140,7 +141,7 @@ export default function Home() {
       <div className="bg-indigo-600">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            <span className="block">Ready to get started?</span>
+            <span className="block">Ready to get started? </span>
             <span className="block text-slate-950/70">Start managing your tasks today.</span>
           </h2>
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
