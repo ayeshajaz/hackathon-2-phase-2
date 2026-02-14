@@ -108,7 +108,7 @@ export function EditTaskForm({ task, onSuccess, onCancel }: EditTaskFormProps) {
             placeholder="Enter task description"
             className={cn(
               'w-full px-4 py-3 border rounded-lg',
-              'bg-white/5 backdrop-blur-sm border-white/20',
+              'bg-indigo-500/30 backdrop-blur-sm border-white/20',
               'focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500',
               'transition-all duration-300 resize-none',
               'text-white placeholder-gray-300'

@@ -7,22 +7,24 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
-import { Inter, Poppins } from "next/font/google";
+import { Montserrat, Quicksand } from "next/font/google";
 
-const inter = Inter({
+// Stylish Todo App Fonts
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "600", "700"],
+  display: "swap",
 });
 
-const poppins = Poppins({
+const quicksand = Quicksand({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Task Manager",
-  description: "A modern task management application",
+  description: "A simple task management application",
 };
 
 export default function RootLayout({
@@ -31,10 +33,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} ${poppins.variable} font-sans antialiased`}
-      >
+    <html lang="en" className={montserrat.className}>
+      <body className={`${quicksand.className} antialiased`}>
         <Providers>{children}</Providers>
       </body>
     </html>

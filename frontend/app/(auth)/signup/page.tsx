@@ -21,7 +21,7 @@ export default function SignupPage() {
           </p>
         </div>
 
-        <Card className="shadow-2xl ">
+        <Card className="shadow-2xl">
           <SignupForm />
           <div className="mt-6 text-center">
             <p className="text-gray-100 text-sm">

@@ -19,7 +19,7 @@ export default function DashboardPage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <h2 className="text-3xl font-bold mb-2 bg-indigo-300 bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold b-2 bg-indigo-300 bg-clip-text text-transparent">
               My Tasks
             </h2>
             <p className="text-gray-200">

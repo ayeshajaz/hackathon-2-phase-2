@@ -65,7 +65,7 @@ export function CreateTaskForm({ onSuccess, onCancel }: CreateTaskFormProps) {
   };
 
   return (
-    <div className="backdrop-blur-xl bg-slate-900/40 rounded-2xl border border-white/20 shadow-2xl p-6">
+    <div className="backdrop-blur-xl bg-slate-950/40 rounded-2xl border border-white/20 shadow-2xl p-6">
       <div className="mb-6">
         <h3 className="text-xl font-bold text-white">Create New Task</h3>
         <p className="mt-1 text-sm text-indigo-300">Add a new task to your list</p>
@@ -100,7 +100,7 @@ export function CreateTaskForm({ onSuccess, onCancel }: CreateTaskFormProps) {
             placeholder="Enter task description"
             className={cn(
               'w-full px-4 py-3 border rounded-lg',
-              'bg-white/5 backdrop-blur-sm border-white/20',
+              'bg-indigo-500/30 backdrop-blur-sm border-white/20',
               'focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500',
               'transition-all duration-300 resize-none',
               'text-white placeholder-gray-300'

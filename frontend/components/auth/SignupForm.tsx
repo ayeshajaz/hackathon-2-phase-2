@@ -53,7 +53,7 @@ export function SignupForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 bg-slate-950/40">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <Input
         label="Email"
         type="email"

@@ -10,7 +10,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth/context';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
-import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 
 export default function Home() {
@@ -71,7 +70,7 @@ export default function Home() {
 
               <Link
                 href="/signin"
-                className="px-8 py-3 rounded-xl bg-slate-950/40 backdrop-blur-md border border-white/20 hover:bg-slate-950/40 transition font-semibold text-lg"
+                className="px-8 py-3 rounded-xl bg-slate-950/30 backdrop-blur-md border border-white/20 hover:bg-slate-950/40 transition font-semibold text-lg"
               >
                 Sign In
               </Link>

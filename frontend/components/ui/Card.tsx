@@ -22,7 +22,7 @@ export function Card({ children, className = '', variant = 'flat' }: CardProps) 
 
   return (
     <div className={cn(
-      'backdrop-blur-xl bg-white/10 rounded-2xl border border-white/20 p-6',
+      'backdrop-blur-xl bg-slate-900/50 rounded-2xl border border-white/20 p-6',
       variantStyles[variant],
       className
     )}>

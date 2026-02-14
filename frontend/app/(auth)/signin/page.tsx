@@ -21,7 +21,7 @@ export default function SigninPage() {
           </p>
         </div>
 
-        <Card className="shadow-2xl bg-slate-950/40">
+        <Card className="shadow-2xl">
           <SigninForm />
           <div className="mt-6 text-center">
             <p className="text-gray-100 text-sm">
