@@ -33,7 +33,7 @@ export function Header({ onMenuClick }: HeaderProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent lg:hidden">
+            <h1 className="text-xl font-bold bg-indigo-300 bg-clip-text text-transparent lg:hidden">
               Task Manager
             </h1>
           </div>
